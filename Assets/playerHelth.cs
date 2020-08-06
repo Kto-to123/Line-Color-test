@@ -6,9 +6,17 @@ using UnityEngine.Events;
 public class PlayerHelth : MonoBehaviour
 {
     public static UnityAction die;
+    [SerializeField] MeshRenderer renderer;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnDestroy()
     {
+        die = null;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        renderer.enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
         die?.Invoke();
     }
 }

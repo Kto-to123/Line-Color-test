@@ -13,11 +13,13 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         PlayerHelth.die += Die;
+        Finish.GameWin += GameWin;
     }
 
-    private void OnDestroy()
+    void GameWin()
     {
-        PlayerHelth.die -= Die;
+        live = false;
+        player.speed = 0f;
     }
 
     void Die()
