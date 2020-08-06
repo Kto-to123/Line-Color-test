@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class playerHelth : MonoBehaviour
+public class PlayerHelth : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    public static UnityAction die;
+
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        die?.Invoke();
     }
 }

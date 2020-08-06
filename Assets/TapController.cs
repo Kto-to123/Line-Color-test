@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class TapController : MonoBehaviour
 {
-    [SerializeField] PathCreation.Examples.PathFollower player;
+    public bool click = false;
 
     private void Update()
     {
         if (Input.GetMouseButton(0))
         {
-            player.speed = 5f;
+            click = true;
         }
         else
         {
-            player.speed = 0f;
+            click = false;
         }
     }
 }
